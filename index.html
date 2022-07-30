@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/bootstrap.css">    
+    <title>App Product</title>
+</head>
+<body>
+    <!-- NAVEGATION -->
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a href="/" class="navbar-brand">
+                App Product
+            </a>
+        </nav>
+    </div>
+    
+    <div class="container">
+        <!-- APLICATION -->
+        <div id="App" class="row pt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Add Your Product</h4>
+                    </div>
+                    <form id="product-form" class="card-body">
+                        <div class="form-group">
+                            <input type="text" id="name" class="form-control" placeholder="Wath is your product">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" step="0.01" id="price" placeholder="Price" class="form-controls mt-4">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="date" class="form-control mt-2" min="1900" max="2025"
+                            placeholder="Years Product">
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-lg btn-primary mt-1" type="submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="product-list" class="col-md-8"></div>
+        </div>
+    </div>
+    <!-- Script -->
+    <script src="/App.js"></script>
+</body>
+</html>
