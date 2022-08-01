@@ -24,7 +24,7 @@ class UI {
     `;
     productList.appendChild(element);
     }
-
+//Reset Form Values
     resetForm() {
         document.getElementById("product-form").reset();
     }
@@ -44,6 +44,7 @@ class UI {
        const container = document.querySelector(".container");
        const app = document.querySelector(`#App`);
        container.insertBefore(div, app);
+        // Remove the Message after 3 seconds
        setTimeout(() => {
         document.querySelector(`.alert`).remove()
        }, 2000); 
@@ -53,6 +54,10 @@ class UI {
 //DOM EVENTS
 document.getElementById("product-form")
     .addEventListener("submit", (e) => {
+        // Override the default Form behaviour
+        e.preventDefault();
+
+          // Getting Values
         const name = document.getElementById("name").value;
         const price = document.getElementById("price").value;
         const date = document.getElementById("date").value;
@@ -60,14 +65,18 @@ document.getElementById("product-form")
         const product = new Product(name, price, date );
 
         const ui = new UI();
-        ui.addProduct(product)
-        ui.resetForm();//RESET 
-        ui.showMessage(`Product Added`, `success`);
 
-        e.preventDefault();
-        
-}) 
+// Input User Validation
+    if (name === "" || price === "" || year === "") {
+        ui.showMessage("Please Insert data in all fields", "danger");
+      }
+// Save Product
+        ui.addProduct(product);
+        ui.resetForm();
+        ui.showMessage(`Product Added`, `success`);        
+});
+
 document.getElementById("product-list").addEventListener("click", (e) =>{
     const ui = new UI();
     ui.deleteProduct(e.target);
-})
+});
